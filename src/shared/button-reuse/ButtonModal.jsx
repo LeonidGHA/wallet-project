@@ -1,11 +1,11 @@
 import css from './Button.module.scss';
 
-const ButtonModal = ({ handleChange }) => {
+const ButtonModal = ({ handleClick }) => {
   return (
     <button
       className={css.btn_modal}
       type="button"
-      onClick={handleChange}
+      onClick={handleClick}
     ></button>
   );
 };

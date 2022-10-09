@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import TextFields from 'shared/text-field/TextFields';
+import TextFields from 'shared/text-field/TextField';
 import ButtonSubmit from 'shared/button-reuse/ButtonSubmit';
 import ButtonClassic from 'shared/button-reuse/ButtonClassic';
 

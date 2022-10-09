@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
 import { exchangeRate } from 'shared/api/privat24-api';
+
 const Currency = () => {
   const [currencyRate, setCurrencyRate] = useState([]);
 
