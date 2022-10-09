@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import Currency from 'components/currency/Currency';
 
@@ -9,6 +10,7 @@ const activeNav = ({ isActive }) => {
 };
 
 const Navigation = () => {
+  const balance = useSelector(state => state.auth.user.balance);
   return (
     <div>
       <nav>
@@ -27,7 +29,7 @@ const Navigation = () => {
       </nav>
       <div>
         <h3>Ваш баланс</h3>
-        <p>$ 24 000.00</p>
+        <p>₴ {balance.toFixed(2)}</p>
       </div>
       <Currency />
     </div>

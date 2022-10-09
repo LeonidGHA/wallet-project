@@ -16,11 +16,8 @@ const DashboardForm = () => {
 
   useEffect(() => {
     if (date.month !== null && date.year === null) {
-      console.log(`cancel`);
       return;
     }
-    console.log(date);
-    console.log(`This Im work`);
 
     dispatch(transactionSummaryUser(date));
   }, [date, dispatch]);
@@ -48,14 +45,13 @@ const DashboardForm = () => {
 
       return;
     }
-    // console.log(e);
+
     const { value } = e;
     setDate(prevState => ({
       ...prevState,
       year: value,
     }));
   };
-  console.log(date);
 
   return (
     <>

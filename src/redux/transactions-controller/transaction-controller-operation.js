@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { refreshUser } from 'redux/auth/auth-operations';
 
 import {
   transactionPost,
@@ -14,6 +15,7 @@ export const transactionPostUser = createAsyncThunk(
       const result = await transactionPost(data);
       // console.log(result);
       dispatch(transactionGetUser());
+      dispatch(refreshUser());
       return result;
     } catch (error) {
       const statusErr = error.response.status;
@@ -40,7 +42,7 @@ export const transactionGetUser = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const result = await transactionGet();
-      // console.log(result);
+      console.log(result);
       return result;
     } catch (error) {
       const statusErr = error.response.status;
@@ -62,6 +64,7 @@ export const transactionPatchUser = createAsyncThunk(
     try {
       const result = await transactionPatch(id);
       dispatch(transactionGetUser());
+      dispatch(refreshUser());
       return result;
     } catch (error) {
       const statusErr = error.response.status;
@@ -89,6 +92,7 @@ export const transactionDeleteUser = createAsyncThunk(
     try {
       const result = await transactionDelete(id);
       dispatch(transactionGetUser());
+      dispatch(refreshUser());
       return result;
     } catch (error) {
       const statusErr = error.response.status;
