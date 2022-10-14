@@ -1,0 +1,89 @@
+@import 'shared/styles/';
+
+.income_color {
+  color: #24cca7;
+}
+.expanse_color {
+  color: #ff6596;
+}
+
+.dasboard_title_item {
+  display: grid;
+  grid-template-columns: 75px 29px 118px 113px 60px 67px 24px 24px;
+  grid-gap: 20px;
+
+  background: #ffffff;
+  border-radius: 30px;
+  padding: 16px 20px 15px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.dasboard_body_item {
+  display: grid;
+  grid-template-columns: 75px 29px 118px 113px 60px 67px 24px 24px;
+  grid-gap: 20px;
+
+  padding: 16px 20px 15px;
+  border-bottom: 1px solid #dcdcdf;
+  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.navigation_icon {
+  fill: $color-primary;
+  width: 20px;
+}
+.navigation_icon_delete {
+  &:hover,
+  &:focus {
+    fill: $color-secondary-accent;
+  }
+}
+.navigation_icon_edit {
+  &:hover,
+  &:focus {
+    fill: $color-accent;
+  }
+}
+
+.dasboard_body {
+  max-height: 655px;
+  overflow-y: scroll;
+}
+
+.dasboard_body::-webkit-scrollbar {
+  width: 3px;
+}
+
+.dasboard_body::-webkit-scrollbar-track {
+  background-color: transparent;
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
+
+.dasboard_body::-webkit-scrollbar-thumb {
+  background: $backdrop-color;
+
+  // border-radius: 20px;
+}
+
+.dasboard_body::-webkit-scrollbar-thumb:hover {
+  background: $color-accent;
+}
+
+.dashboard_table {
+  max-width: 733px;
+  border-collapse: collapse;
+}
+
+.income_color {
+  color: #24cca7;
+}
+.expanse_color {
+  color: #ff6596;
+}

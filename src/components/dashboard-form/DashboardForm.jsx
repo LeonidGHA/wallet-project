@@ -7,6 +7,7 @@ import Select from 'react-select';
 import { initialState } from './initialState';
 import { fields } from './fieldsSample';
 import { monthsOptionLabel, yearsOptionLabel } from './optionValue';
+import css from './DashboardForm.module.scss';
 
 const DashboardForm = () => {
   const [date, setDate] = useState(initialState);
@@ -54,28 +55,30 @@ const DashboardForm = () => {
   };
 
   return (
-    <>
+    <div className={css.dasboardForm_box}>
       <Select
-        className="basic-single"
-        classNamePrefix="select"
+        className="dashboard-moths_container"
+        classNamePrefix="custom-select"
         defaultValue={month}
         isClearable={true}
+        placeholder="Месяц"
         onChange={handleChangeMonth}
         isSearchable={true}
         name={fields.month.name}
         options={monthsOptionLabel}
       />
       <Select
-        className="basic-single"
-        classNamePrefix="select"
+        className="dashboard-year_container"
+        classNamePrefix="custom-select"
         defaultValue={year}
         onChange={handleChangeYear}
         isClearable={true}
+        placeholder="Год"
         isSearchable={true}
         name={fields.year.name}
         options={yearsOptionLabel}
       />
-    </>
+    </div>
   );
 };
 

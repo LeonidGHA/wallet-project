@@ -1,0 +1,80 @@
+@import 'shared/styles/';
+.backdrop {
+  display: none;
+  @include media-query(desktop) {
+    display: block;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 45vw;
+    background-color: $bg-color-secondary;
+    backdrop-filter: blur(25px);
+    z-index: -1;
+  }
+}
+
+.registration_box {
+  @include media-query(tablet) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 60px;
+    padding-bottom: 50px;
+  }
+  @include media-query(desktop) {
+    height: 100vh;
+    flex-direction: row;
+    padding-top: 50px;
+  }
+}
+
+.registration_image_box {
+  display: none;
+  @include media-query(tablet) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin-bottom: 50px;
+  }
+  @include media-query(desktop) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 435px;
+    margin: 0;
+    margin-right: 50px;
+  }
+}
+
+.registration_image {
+  @include media-query(tablet) {
+    margin-right: 40px;
+  }
+  @include media-query(desktop) {
+    margin: 0;
+    margin-bottom: 32px;
+  }
+}
+
+.registration_title {
+  font-family: 'PoppinsRegular';
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.5;
+}
+
+.registration_form_box {
+  @include media-query(tablet) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+  }
+  @include media-query(desktop) {
+    padding-left: 85px;
+  }
+}

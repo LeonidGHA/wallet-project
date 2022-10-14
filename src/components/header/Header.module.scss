@@ -1,0 +1,42 @@
+@import 'shared/styles/';
+
+.header {
+  background-color: $color-primary-light;
+}
+
+.header_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.header_box_name {
+  color: $color-secondary;
+  position: relative;
+  font-size: 18px;
+  line-height: 1.5;
+  padding-right: 15px;
+  margin-right: 15px;
+
+  &::after {
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 1px solid $color-secondary;
+  }
+}
+
+.header_box_btn {
+  color: $color-secondary;
+  font-size: 18px;
+  line-height: 1.5;
+  background-color: $color-primary-light;
+
+  padding-left: 28px;
+  background-image: url('../../shared/images/log-out.svg');
+  background-repeat: no-repeat;
+  background-position: left;
+}

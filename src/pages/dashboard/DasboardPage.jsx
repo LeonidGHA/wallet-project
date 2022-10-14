@@ -7,6 +7,8 @@ import ChartsDiagram from 'components/charts-diagram/ChartsDiagram';
 import { categoryRu } from 'shared/array-for-ru/category-ru';
 import { transactionSummaryUser } from './../../redux/transaction-summary/transactions-summary-operations';
 
+import css from './DashboardPage.module.scss';
+
 const DasboardPage = () => {
   const dispatch = useDispatch();
   const balance = useSelector(state => state.auth.user.balance);
@@ -26,51 +28,55 @@ const DasboardPage = () => {
         el => el.name === nameEn
       );
       return (
-        <tr key={id}>
-          <td>
-            <div style={{ backgroundColor: color }}>1</div> {name}
-          </td>
-          <td>
-            {categoryTransaction
-              ? Math.abs(categoryTransaction.total).toFixed(2)
-              : `0.00`}
-          </td>
-        </tr>
+        <li key={id} className={css.dashboard_body_item}>
+          <div className={css.dashboard_body_item_name}>
+            <div
+              className={css.dashboard_body_item_name_color}
+              style={{ backgroundColor: color }}
+            ></div>
+            {name}
+          </div>
+          {categoryTransaction
+            ? Math.abs(categoryTransaction.total).toFixed(2)
+            : `0.00`}
+        </li>
       );
     }
   );
   return (
-    <>
-      <h2>Статистика</h2>
-      <div>
-        <div>
+    <div className={css.dashboard}>
+      <h2 className={css.dashboard_title}>Статистика</h2>
+      <div className={css.dashboard_box}>
+        <div className={css.dashboard_diagram}>
           <ChartsDiagram />
-          <p>₴ {balance.toFixed(2)}</p>
+          <p className={css.dashboard_diagram_balance}>
+            ₴ {balance.toFixed(2)}
+          </p>
         </div>
-        <div>
+        <div className={css.dashboard_category}>
           <DashboardForm />
-          <table>
-            <tbody>
-              <tr>
-                <th>Дата</th>
-                <th>Тип</th>
-              </tr>
-              {rederCategoriesExpense}
-            </tbody>
-          </table>
+          <ul className={css.dashboard_head_list}>
+            <li>Категория</li>
+            <li>Сумма</li>
+          </ul>
+          <ul className={css.dashboard_body_list}>{rederCategoriesExpense}</ul>
           <ul>
-            <li>
+            <li className={css.dashboard_funds_item}>
               Расходы:
-              <span>{Math.abs(generalSummary.expenseSummary).toFixed(2)}</span>
+              <span className={css.dashboard_funds_expense}>
+                {Math.abs(generalSummary.expenseSummary).toFixed(2)}
+              </span>
             </li>
-            <li>
+            <li className={css.dashboard_funds_item}>
               Доходы:
-              <span>{Math.abs(generalSummary.incomeSummary).toFixed(2)}</span>
+              <span className={css.dashboard_funds_income}>
+                {Math.abs(generalSummary.incomeSummary).toFixed(2)}
+              </span>
             </li>
           </ul>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

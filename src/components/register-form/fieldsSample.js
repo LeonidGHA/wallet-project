@@ -2,19 +2,25 @@ const fields = {
   name: {
     name: 'username',
     type: 'text',
-    placeholder: 'Enter user name',
+    placeholder: 'Ваше имя',
     required: true,
   },
   email: {
     name: 'email',
     type: 'email',
-    placeholder: 'Enter user email',
+    placeholder: 'E-mail',
     required: true,
   },
   password: {
     name: 'password',
     type: 'password',
-    placeholder: 'Enter user password (min 6 symbols)',
+    placeholder: 'Пароль',
+    required: true,
+  },
+  confirmPassword: {
+    name: 'confirmPassword',
+    type: 'password',
+    placeholder: 'Подтвердите пароль',
     required: true,
   },
 };

@@ -1,3 +1,12 @@
+@import 'shared/styles/';
+
 .position {
-  display: flex;
+  @include media-query(tablet) {
+    display: flex;
+    flex-direction: column;
+  }
+  @include media-query(desktop) {
+    flex-direction: row;
+    justify-content: center;
+  }
 }

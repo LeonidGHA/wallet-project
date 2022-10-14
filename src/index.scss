@@ -2,11 +2,20 @@
 
 body {
   margin: 0;
+  height: 100%;
   font-family: 'CircleRegular', 'CircleBold', 'PoppinsRegular', 'PoppinsBold',
     sans-serif;
 
   color: black;
   background-color: #e7eaf2;
+  @include media-query(tablet) {
+    background-image: url(shared/images/bg-purple.svg),
+      url(shared/images/bg-light-purple.svg);
+    background-repeat: no-repeat;
+    background-position: bottom 0 left 0, top 0 right 0;
+  }
+  @include media-query(desktop) {
+  }
 }
 
 code {

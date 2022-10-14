@@ -1,8 +1,12 @@
 import css from './Button.module.scss';
 
-const ButtonSubmit = ({ text, onClick }) => {
+const ButtonSubmit = ({ text, onClick, className }) => {
   return (
-    <button className={css.btn_submit} type="submit" onClick={onClick}>
+    <button
+      className={`${css.btn_submit} = ${className}`}
+      type="submit"
+      onClick={onClick}
+    >
       {text}
     </button>
   );

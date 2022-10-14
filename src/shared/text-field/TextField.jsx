@@ -15,11 +15,14 @@ const TextFields = ({
   placeholder,
   required,
   pattern,
+  classNameLabel,
+  children,
 }) => {
   // const fullClassName = className ? `${className}` : css.field;
 
   return (
-    <label>
+    <label className={classNameLabel}>
+      {children}
       <input
         id={id}
         name={name}
@@ -32,6 +35,7 @@ const TextFields = ({
         required={required}
         placeholder={placeholder}
         pattern={pattern}
+        className={className}
       />
     </label>
   );

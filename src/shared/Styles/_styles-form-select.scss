@@ -1,0 +1,53 @@
+.dashboard-moths_container {
+  & .custom-select__control {
+    width: 166px;
+    border: 1px solid #000000;
+    border-radius: 30px;
+    background-color: transparent;
+  }
+  & .custom-select__value-container {
+    padding: 12px 0 12px 21px;
+  }
+  & .custom-select__menu {
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+
+    border-radius: 20px;
+  }
+}
+.dashboard-year_container {
+  & .custom-select__control {
+    width: 166px;
+    border: 1px solid #000000;
+    border-radius: 30px;
+    background-color: transparent;
+  }
+  & .custom-select__value-container {
+    padding: 12px 0 12px 21px;
+  }
+  & .custom-select__menu {
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+
+    border-radius: 20px;
+  }
+}
+
+.custom-select__menu-list::-webkit-scrollbar {
+  width: 3px;
+}
+
+.custom-select__menu-list::-webkit-scrollbar-track {
+  background-color: transparent;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.custom-select__menu-list::-webkit-scrollbar-thumb {
+  background: $backdrop-color;
+
+  // border-radius: 20px;
+}
+.custom-select__menu-list::-webkit-scrollbar-thumb:hover {
+  background: $color-accent;
+}

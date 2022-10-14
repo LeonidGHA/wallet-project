@@ -7,6 +7,7 @@ import Modal from 'shared/modal/Modal';
 import TransactionForm from 'components/transaction-form/TransactionForm';
 
 import { transactionCategoriesUser } from 'redux/transactions-categories/transaction-categories-operation';
+import css from './MainPage.module.scss';
 
 import {
   transactionGetUser,
@@ -51,7 +52,6 @@ const MainPage = () => {
     } else {
       const dataExpense = {
         ...data,
-        // amount: Number(`-${data.amount}`),
         amount: -Math.abs(data.amount),
       };
       console.log(dataExpense);
@@ -60,7 +60,7 @@ const MainPage = () => {
     }
   };
   return (
-    <>
+    <div className={css.section}>
       <TableList />
       <ButtonModal handleClick={onClickToggleModal} />
       {isOpenModal && (
@@ -68,7 +68,7 @@ const MainPage = () => {
           <TransactionForm onClick={onClickToggleModal} onSubmit={onSubmit} />
         </Modal>
       )}
-    </>
+    </div>
   );
 };
 

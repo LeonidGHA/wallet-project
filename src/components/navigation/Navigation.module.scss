@@ -1,0 +1,107 @@
+@import 'shared/styles/';
+
+.navigation {
+  @include media-query(tablet) {
+    padding-top: 30px;
+    display: flex;
+    margin-bottom: 40px;
+  }
+  @include media-query(desktop) {
+    display: block;
+    padding: 40px 30px 49px 0;
+    width: 377px;
+    height: 100%;
+    margin: 0;
+  }
+}
+
+.navigation_box {
+  @include media-query(tablet-only) {
+    margin-right: 20px;
+    width: 334px;
+  }
+}
+.navigation_nav {
+  margin-bottom: 30px;
+}
+.backdrop {
+  display: none;
+  @include media-query(tablet) {
+    display: block;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: $bg-color-secondary;
+    backdrop-filter: blur(25px);
+    z-index: -1;
+  }
+}
+
+.navigation_icon {
+  width: 24px;
+  height: 24px;
+  fill: #6e78e8;
+  background-color: $color-primary-light;
+  border-radius: 6px;
+  margin-right: 20px;
+}
+
+.headerNavLink {
+  display: flex;
+  align-items: center;
+  font-family: 'PoppinsRegular';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: black;
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  &:hover,
+  :focus {
+    font-family: 'PoppinsBold';
+    font-weight: 700;
+  }
+  &:hover .navigation_icon,
+  :focus .navigation_icon {
+    filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
+    fill: $btn-secondary-color;
+  }
+  &.active {
+    font-family: 'PoppinsBold';
+    font-weight: 700;
+  }
+  &.active .navigation_icon {
+    filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
+    fill: $btn-secondary-color;
+  }
+}
+
+.navigation_balance {
+  background: $color-primary-light;
+  border-radius: 30px;
+  padding: 8px 30px;
+
+  @include media-query(tablet) {
+  }
+  @include media-query(desktop) {
+    margin-bottom: 30px;
+  }
+}
+
+.navigation_balance_title {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  text-transform: uppercase;
+
+  color: #a6a6a6;
+}
+.navigation_balance_text {
+  font-family: 'PoppinsRegular';
+
+  font-size: 30px;
+  line-height: 1.5;
+}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
 import { exchangeRate } from 'shared/api/privat24-api';
+import css from './Currency.module.scss';
 
 const Currency = () => {
   const [currencyRate, setCurrencyRate] = useState([]);
@@ -21,33 +22,40 @@ const Currency = () => {
     ?.filter(el => el.base_ccy === 'UAH')
     .map(({ ccy, buy, sale }) => {
       return (
-        <tr key={nanoid()}>
-          <td>{ccy}</td>
-          <td>{Number(buy).toFixed(2)}</td>
-          <td>{Number(sale).toFixed(2)}</td>
-        </tr>
+        <li key={nanoid()} className={css.currency_coin_item}>
+          <span>{ccy}</span>
+          <span>{Number(buy).toFixed(2)}</span>
+          <span>{Number(sale).toFixed(2)}</span>
+        </li>
       );
     });
 
   return (
-    <table>
-      <tbody>
-        <tr>
-          <th>Валюта</th>
-          <th>Покупка</th>
-          <th>Продажа</th>
-        </tr>
+    <div className={css.currency_box}>
+      <ul className={css.currency_title_list}>
+        <li className={css.currency_title_item}>Валюта</li>
+        <li className={css.currency_title_item}>Покупка</li>
+        <li className={css.currency_title_item}>Продажа</li>
+      </ul>
+      <ul className={css.currency_coin_list}>
         {currencyRate.length > 0 ? (
           renderCurencyRate
         ) : (
-          <tr>
-            <td>--</td>
-            <td>--.--</td>
-            <td>--.--</td>
-          </tr>
+          <>
+            <li className={css.currency_coin_item}>
+              <span>---</span>
+              <span>--.--</span>
+              <span>--.--</span>
+            </li>
+            <li className={css.currency_coin_item}>
+              <span>---</span>
+              <span>--.--</span>
+              <span>--.--</span>
+            </li>
+          </>
         )}
-      </tbody>
-    </table>
+      </ul>
+    </div>
   );
 };
 

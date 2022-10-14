@@ -1,0 +1,26 @@
+@import 'shared/styles/';
+
+.section {
+  @include media-query(tablet) {
+    height: 90vh;
+  }
+  @include media-query(desktop) {
+    width: 733px;
+    position: relative;
+
+    padding: 40px 0 40px 30px;
+  }
+  &::before {
+    @include media-query(desktop) {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      border-left: 1px solid #e7e5f2;
+      box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
+        1px 0px 0px rgba(255, 255, 255, 0.6);
+    }
+  }
+}
