@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 const useForm = ({ initialState, onSubmit }) => {
   const [state, setState] = useState({ ...initialState });
+  console.log(state);
 
   const handleChange = ({ target }) => {
     const { value, name, type, checked } = target;
@@ -14,13 +15,24 @@ const useForm = ({ initialState, onSubmit }) => {
     }));
   };
 
+  const handleChangeSelect = e => {
+    if (e === null) {
+      return;
+    }
+    const { value, name } = e;
+    setState(prevState => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
     onSubmit({ ...state });
     setState({ ...initialState });
   };
-  console.log(state);
-  return { state, setState, handleChange, handleSubmit };
+
+  return { state, setState, handleChange, handleChangeSelect, handleSubmit };
 };
 
 export default useForm;

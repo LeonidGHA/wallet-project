@@ -7,11 +7,11 @@ import { categoryRu } from 'shared/array-for-ru/category-ru';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const ChartsDiagram = ({ categorySumm }) => {
+const ChartsDiagram = () => {
   const takeCategorySumm = useSelector(
     state => state.transactionsSummary.categoriesSummary
   );
-  // const takeCategorySumm = categorySumm;
+
 
   const takeAllExpense = takeCategorySumm?.filter(el => el.type !== 'INCOME');
 
@@ -36,10 +36,7 @@ const ChartsDiagram = ({ categorySumm }) => {
     ],
   };
 
-  //   console.log(takeAllExpense);
-  // console.log(takeCategorySumm);
-  // console.log(totalsOfCategorySumm);
-  // console.log(colorofCategorySumm);
+
   return <Doughnut data={data} />;
 };
 

@@ -4,14 +4,18 @@ const RadioInputCustom = ({
   value,
   type,
   className,
+  classNameLabel,
   checked,
   handleChange,
-  label,
+  labelText,
   required,
+  children
 }) => {
   return (
-    <label>
+    <label className={classNameLabel}>
+      {labelText}
       <input
+        className={className}
         id={id}
         onChange={handleChange}
         type={type}
@@ -20,7 +24,7 @@ const RadioInputCustom = ({
         checked={checked === value}
         required={required}
       />
-      {label}
+      {children}
     </label>
   );
 };

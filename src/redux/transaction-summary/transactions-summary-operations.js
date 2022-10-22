@@ -6,7 +6,7 @@ export const transactionSummaryUser = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const result = await transactionSummary(data);
-      console.log(result);
+      // console.log(result);
       return result;
     } catch (error) {
       const statusErr = error.response.status;

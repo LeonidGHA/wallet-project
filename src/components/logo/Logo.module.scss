@@ -20,13 +20,10 @@
   }
 }
 .logo_text {
-  font-family: 'PoppinsRegular';
-  font-style: normal;
-  font-weight: 700;
+  font-family: 'PoppinsBold';
   font-size: 25px;
-  line-height: 1.3;
+
   @include media-query(tablet) {
     font-size: 30px;
-    line-height: 1.5;
   }
 }

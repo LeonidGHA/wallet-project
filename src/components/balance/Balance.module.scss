@@ -1,0 +1,29 @@
+@import 'shared/styles/';
+
+.balance_box {
+  background: $color-primary-light;
+  border-radius: 30px;
+  padding: 8px 30px;
+  margin-bottom: 30px;
+
+  @include media-query(tablet) {
+    margin: 0;
+  }
+  @include media-query(desktop) {
+    margin-bottom: 30px;
+  }
+}
+
+.balance_title {
+  font-weight: 400;
+  font-size: 12px;
+
+  text-transform: uppercase;
+
+  color: #a6a6a6;
+}
+.balance_text {
+  font-family: 'PoppinsRegular';
+
+  font-size: 30px;
+}

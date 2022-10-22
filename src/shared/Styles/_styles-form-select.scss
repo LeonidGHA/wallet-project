@@ -1,9 +1,17 @@
 .dashboard-moths_container {
   & .custom-select__control {
-    width: 166px;
     border: 1px solid #000000;
     border-radius: 30px;
     background-color: transparent;
+    @include media-query(mobile-only) {
+      margin-bottom: 20px;
+    }
+    @include media-query(tablet) {
+      width: 155px;
+    }
+    @include media-query(desktop) {
+      width: 166px;
+    }
   }
   & .custom-select__value-container {
     padding: 12px 0 12px 21px;
@@ -15,12 +23,18 @@
     border-radius: 20px;
   }
 }
+
 .dashboard-year_container {
   & .custom-select__control {
-    width: 166px;
     border: 1px solid #000000;
     border-radius: 30px;
     background-color: transparent;
+    @include media-query(tablet) {
+      width: 155px;
+    }
+    @include media-query(desktop) {
+      width: 166px;
+    }
   }
   & .custom-select__value-container {
     padding: 12px 0 12px 21px;
@@ -50,4 +64,38 @@
 }
 .custom-select__menu-list::-webkit-scrollbar-thumb:hover {
   background: $color-accent;
+}
+
+.transaction_container {
+  & .custom-select__control {
+    border-radius: 0;
+    border-radius: 0;
+    border-width: 0;
+    border-bottom: 1px solid $style-color-form;
+    box-shadow: none;
+
+    background-color: transparent;
+    @include media-query(mobile-only) {
+    }
+    @include media-query(tablet) {
+      width: 155px;
+    }
+    @include media-query(desktop) {
+      width: 100%;
+    }
+  }
+
+  & .custom-select__control:hover {
+    border-color: none;
+    border-bottom: 1px solid $style-color-form;
+  }
+  & .custom-select__value-container {
+    padding: 12px 0 12px 21px;
+  }
+  & .custom-select__menu {
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+
+    border-radius: 20px;
+  }
 }

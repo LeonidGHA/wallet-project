@@ -42,7 +42,7 @@ export const transactionGetUser = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const result = await transactionGet();
-      console.log(result);
+      // console.log(result);
       return result;
     } catch (error) {
       const statusErr = error.response.status;

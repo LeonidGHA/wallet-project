@@ -1,13 +1,14 @@
 @import 'shared/styles/';
 
 .section {
+  padding-bottom: 20px;
   @include media-query(tablet) {
-    height: 90vh;
+    height: calc(100vh - 73px);
   }
   @include media-query(desktop) {
     width: 733px;
     position: relative;
-
+    height: calc(100vh - 85px);
     padding: 40px 0 40px 30px;
   }
   &::before {

@@ -29,7 +29,7 @@ const TableList = () => {
       }) => {
         const categoryTransaction = categoryRu.find(el => el.id === categoryId);
         return (
-          <li className={css.dasboard_body_item} key={id}>
+          <li className={css.main_body_item} key={id}>
             <span>{transactionDate.split('-').reverse().join('.')}</span>
             <span>{type === 'INCOME' ? `+` : `-`}</span>
             <span>{categoryTransaction.name}</span>
@@ -39,9 +39,9 @@ const TableList = () => {
                 type === 'INCOME' ? css.income_color : css.expanse_color
               }
             >
-              {Math.abs(amount).toFixed(2)}
+              {Math.abs(amount).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
             </span>
-            <span>{balanceAfter.toFixed(2)}</span>
+            <span>{balanceAfter.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</span>
             <div id={id} onClick={handleClick}>
               <svg
                 className={`${css.navigation_icon} ${css.navigation_icon_delete}`}
@@ -66,9 +66,9 @@ const TableList = () => {
     );
 
   return (
-    <div className={css.dashboard_table_box}>
+    <>
       <ul>
-        <li className={css.dasboard_title_item}>
+        <li className={css.main_title_item}>
           <span>Дата</span>
           <span>Тип</span>
           <span>Категория</span>
@@ -95,8 +95,8 @@ const TableList = () => {
           </div>
         </li>
       </ul>
-      <ul className={css.dasboard_body}>{renderTabList}</ul>
-    </div>
+      <ul className={css.main_body}>{renderTabList}</ul>
+    </>
   );
 };
 

@@ -36,10 +36,11 @@
 }
 
 .btn_modal {
-  position: absolute;
-  right: 0px;
+  position: fixed;
+  right: 20px;
   bottom: 40px;
   @include media-query(tablet) {
+    position: absolute;
     right: 40px;
   }
   @include media-query(desktop) {

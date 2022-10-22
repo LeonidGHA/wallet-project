@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import Select from 'react-select';
 
 import ButtonSubmit from 'shared/button-reuse/ButtonSubmit';
 import ButtonClassic from 'shared/button-reuse/ButtonClassic';
@@ -12,9 +13,10 @@ import useForm from 'shared/hooks/useForm';
 import { categoryRu } from 'shared/array-for-ru/category-ru';
 import initialState from './initialState';
 import fields from './fieldsSample';
+import css from './TransactionForm.module.scss'
 
 const TransactionForm = ({ onSubmit, onClick }) => {
-  const { state, setState, handleChange, handleSubmit } = useForm({
+  const { state, setState, handleChange, handleChangeSelect, handleSubmit } = useForm({
     initialState,
     onSubmit,
   });
@@ -25,70 +27,89 @@ const TransactionForm = ({ onSubmit, onClick }) => {
     state => state.transactionCategories.categories
   );
 
+  const optionCategories = categories
+    ?.filter(el => el.type === 'EXPENSE')
+    .map(el => {
+      const categoryTransaction = categoryRu.find(
+        elem => elem.id === el.id
+      );
+      return (
+        {
+          value: el.id,
+          label: categoryTransaction ? categoryTransaction.name : el.name,
+          name: `categoryId`,
+        }
+      );
+    })
   return (
-    <form onSubmit={handleSubmit}>
-      <RadioInputCustom
+    <form className={css.form} onSubmit={handleSubmit}>
+      <h2 className={css.form_title}>Добавить транзакцию</h2>
+      <div className={css.form_radio_switch}><RadioInputCustom
+        classNameLabel={`${css.form_radio_label} ${css.income}`}
+        className={`${css.form_radio_input} ${css.income}`}
         value={type}
         checked={type}
         handleChange={handleChange}
         {...fields.income}
       />
-      <RadioInputCustom
-        value={type}
-        checked={type}
-        handleChange={handleChange}
-        {...fields.expense}
-      />
+
+        <RadioInputCustom
+          classNameLabel={`${css.form_radio_label} ${css.expense}`}
+          className={`${css.form_radio_input} ${css.expense}`}
+          value={type}
+          checked={type}
+          handleChange={handleChange}
+          {...fields.expense}
+        ><div className={css.slider}></div></RadioInputCustom>
+      </div>
+
       {type === 'EXPENSE' && (
-        <label>
-          Выберите категорию
-          <select
-            name="categoryId"
-            value={categoryId}
-            onChange={handleChange}
-            required
-          >
-            <option value="" disabled hidden>
-              Выберите категорию
-            </option>
-            {categories
-              ?.filter(el => el.type === 'EXPENSE')
-              .map(el => {
-                const categoryTransaction = categoryRu.find(
-                  elem => elem.id === el.id
-                );
-                return (
-                  <option key={el.id} value={el.id}>
-                    {categoryTransaction ? categoryTransaction.name : el.name}
-                  </option>
-                );
-              })}
-          </select>
+        <label className={css.form_label_category}>
+          <Select
+            className="transaction_container"
+            classNamePrefix="custom-select"
+            defaultValue={categoryId}
+            onChange={handleChangeSelect}
+            isClearable={true}
+            placeholder="Выберите категорию"
+            required={true}
+            isSearchable={true}
+            name={categoryId}
+            options={optionCategories} />
         </label>
-      )}
-      <DatePicker
-        dateFormat="yyyy-MM-dd"
-        selected={transactionDate}
-        onChange={date =>
-          setState(prevState => ({
-            ...prevState,
-            transactionDate: date,
-          }))
-        }
-      />
+      )
+      }
+      <div className={css.form_position_field}>
+        <TextFields
+          className={css.form_amount}
+          value={amount}
+          handleChange={handleChange}
+          {...fields.amount}
+        />
+        <DatePicker
+          className={css.form_datepicker}
+          dateFormat="yyyy-MM-dd"
+          selected={transactionDate}
+          onChange={date =>
+            setState(prevState => ({
+              ...prevState,
+              transactionDate: date,
+            }))
+          }
+        />
+      </div>
+
       <TextFields
-        value={amount}
-        handleChange={handleChange}
-        {...fields.amount}
-      />
-      <TextFields
+        classNameLabel={css.form_comment_label}
+        className={css.form_comment}
         value={comment}
         handleChange={handleChange}
         {...fields.comment}
       />
-      <ButtonSubmit text="добавить" />
-      <ButtonClassic text="отмена" handleClick={onClick} />
-    </form>
+      <div className={css.form_position_btn}> <ButtonSubmit text="добавить" />
+        <ButtonClassic text="отмена" handleClick={onClick} /></div>
+
+    </form >
   );
 };
 

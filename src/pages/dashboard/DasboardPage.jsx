@@ -37,7 +37,7 @@ const DasboardPage = () => {
             {name}
           </div>
           {categoryTransaction
-            ? Math.abs(categoryTransaction.total).toFixed(2)
+            ? Math.abs(categoryTransaction.total).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
             : `0.00`}
         </li>
       );
@@ -64,13 +64,13 @@ const DasboardPage = () => {
             <li className={css.dashboard_funds_item}>
               Расходы:
               <span className={css.dashboard_funds_expense}>
-                {Math.abs(generalSummary.expenseSummary).toFixed(2)}
+                {Math.abs(generalSummary.expenseSummary).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
               </span>
             </li>
             <li className={css.dashboard_funds_item}>
               Доходы:
               <span className={css.dashboard_funds_income}>
-                {Math.abs(generalSummary.incomeSummary).toFixed(2)}
+                {Math.abs(generalSummary.incomeSummary).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
               </span>
             </li>
           </ul>

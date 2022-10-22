@@ -2,7 +2,7 @@ const fields = {
   comment: {
     name: 'comment',
     type: 'text',
-    placeholder: 'Оставьте свой коментарий',
+    placeholder: 'Комментарий',
     required: true,
   },
   category: {
@@ -22,14 +22,14 @@ const fields = {
     name: 'type',
     value: 'EXPENSE',
     type: 'radio',
-    label: 'Расход',
+    labelText: 'Расход',
     required: true,
   },
   income: {
     name: 'type',
     value: 'INCOME',
     type: 'radio',
-    label: 'Доход',
+    labelText: 'Доход',
     required: true,
   },
 };

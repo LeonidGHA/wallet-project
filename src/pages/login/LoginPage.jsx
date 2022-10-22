@@ -8,7 +8,7 @@ import useResizeScreen from 'shared/hooks/useResizeScreen';
 import css from './LoginPage.module.scss';
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const { isMobile } = useResizeScreen;
+  const { isMobile } = useResizeScreen();
   const logInFetch = data => {
     dispatch(logInUser(data));
   };
