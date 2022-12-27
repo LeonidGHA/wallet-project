@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const useForm = ({ initialState, onSubmit }) => {
   const [state, setState] = useState({ ...initialState });
-  console.log(state);
+
 
   const handleChange = ({ target }) => {
     const { value, name, type, checked } = target;

@@ -18,7 +18,6 @@ const TextFields = ({
   classNameLabel,
   children,
 }) => {
-  // const fullClassName = className ? `${className}` : css.field;
 
   return (
     <label className={classNameLabel}>

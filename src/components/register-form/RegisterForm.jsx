@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import Notiflix from 'notiflix';
+
 
 import Logo from 'components/logo/Logo';
 import TextFields from 'shared/text-field/TextField';
@@ -22,11 +24,22 @@ const RegisterForm = ({ onSubmit }) => {
   const navigate = useNavigate();
   const { name, email, password } = state;
 
-  const handleConfirmPassword = ({ target }) => {
-    setConfirmPassword(target.value);
+
+
+
+  const handleConfirmPassword = (e) => {
+    setConfirmPassword(e.target.value);
+
   };
+  const incorrectPassword = (e) => {
+    e.preventDefault();
+    Notiflix.Notify.failure(`You entered two different passwords. Please try again.`);
+
+  }
+
+  const finallySubmit = password !== confirmPassword ? incorrectPassword : handleSubmit
   return (
-    <form className={css.registration_form} onSubmit={handleSubmit}>
+    <form className={css.registration_form} onSubmit={finallySubmit}>
       <Logo />
       <TextFields
         classNameLabel={css.registration_label}
