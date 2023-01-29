@@ -4,16 +4,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 540px;
-  min-width: 320px;
-  max-width: 540px;
+  height: 100vh;
   padding: 110px 20px;
 
   background: #ffffff;
-  border-radius: 20px;
-  @include media-query(tablet) {
-    padding: 40px 65px 60px;
 
+  @include media-query(tablet) {
+    height: auto;
+    padding: 40px 65px 60px;
     background: #ffffff;
     border-radius: 20px;
   }

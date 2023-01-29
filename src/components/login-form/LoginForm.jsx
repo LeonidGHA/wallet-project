@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 import Logo from 'components/logo/Logo';
 
 import TextFields from 'shared/text-field/TextField';
@@ -48,5 +48,9 @@ const LoginForm = ({ onSubmit }) => {
       />
     </form>
   );
+};
+
+LoginForm.propTypes = {
+  onSubmit: PropTypes.func,
 };
 export default LoginForm;

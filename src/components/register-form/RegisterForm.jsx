@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
+
 import Notiflix from 'notiflix';
 
 
@@ -23,9 +25,6 @@ const RegisterForm = ({ onSubmit }) => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const navigate = useNavigate();
   const { name, email, password } = state;
-
-
-
 
   const handleConfirmPassword = (e) => {
     setConfirmPassword(e.target.value);
@@ -85,6 +84,10 @@ const RegisterForm = ({ onSubmit }) => {
       />
     </form>
   );
+};
+
+RegisterForm.propTypes = {
+  onSubmit: PropTypes.func,
 };
 
 export default RegisterForm;

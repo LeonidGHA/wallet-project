@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Select from 'react-select';
+import PropTypes from 'prop-types';
 
 import ButtonSubmit from 'shared/button-reuse/ButtonSubmit';
 import ButtonClassic from 'shared/button-reuse/ButtonClassic';
@@ -112,5 +113,8 @@ const TransactionForm = ({ onSubmit, onClick }) => {
     </form >
   );
 };
-
+TransactionForm.propTypes = {
+  onSubmit: PropTypes.func,
+  onClick: PropTypes.func,
+};
 export default TransactionForm;

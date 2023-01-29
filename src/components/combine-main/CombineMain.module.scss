@@ -1,6 +1,10 @@
 @import 'shared/styles/';
 
 .position {
+  @include media-query(mobile-only) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   @include media-query(tablet) {
     display: flex;
     flex-direction: column;
